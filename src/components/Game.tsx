@@ -134,7 +134,7 @@ export function Game({ settingsData }: GameProps) {
         </div>
         <div className="my-1 mx-4">
           <img
-            className={`max-h-20 m-auto transition-transform duration-700 ease-in dark:invert ${
+            className={`max-h-20 m-auto transition-transform duration-700 ease-in ${
               hideImageMode && !gameEnded ? "h-0" : "h-full"
             }`}
             alt="country to guess"
