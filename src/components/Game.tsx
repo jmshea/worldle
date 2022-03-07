@@ -103,7 +103,7 @@ export function Game({ settingsData }: GameProps) {
 
   return (
     <div className="flex-grow flex flex-col mx-2">
-      <div className="flex flex-row items-center mx-2">
+      <div className="flex flex-row justify-center items-center mx-2">
         {hideImageMode && !gameEnded && (
           <button
             className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
@@ -132,9 +132,9 @@ export function Game({ settingsData }: GameProps) {
             }
           />
         </div>
-        <div className="my-1 mx-1">
+        <div className="my-1 mx-4">
           <img
-            className={`max-h-32 m-auto transition-transform duration-700 ease-in dark:invert ${
+            className={`max-h-20 m-auto transition-transform duration-700 ease-in dark:invert ${
               hideImageMode && !gameEnded ? "h-0" : "h-full"
             }`}
             alt="country to guess"
