@@ -103,33 +103,44 @@ export function Game({ settingsData }: GameProps) {
 
   return (
     <div className="flex-grow flex flex-col mx-2">
-      {hideImageMode && !gameEnded && (
-        <button
-          className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
-          type="button"
-          onClick={() => setHideImageMode(false)}
-        >
-          <Twemoji
-            text={t("showCountry")}
-            options={{ className: "inline-block" }}
+      <div className="flex flex-row items-center mx-2">
+        {hideImageMode && !gameEnded && (
+          <button
+            className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
+            type="button"
+            onClick={() => setHideImageMode(false)}
+          >
+            <Twemoji
+              text={t("showCountry")}
+              options={{ className: "inline-block" }}
+            />
+          </button>
+        )}
+        <div className="my-1 mx-1">
+          <img
+            className={`max-h-52 m-auto transition-transform duration-700 ease-in dark:invert ${
+              hideImageMode && !gameEnded ? "h-0" : "h-full"
+            }`}
+            alt="country to guess"
+            src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
+            style={
+              rotationMode && !gameEnded
+                ? {
+                    transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
+                  }
+                : {}
+            }
           />
-        </button>
-      )}
-      <div className="my-1">
-        <img
-          className={`max-h-52 m-auto transition-transform duration-700 ease-in dark:invert ${
-            hideImageMode && !gameEnded ? "h-0" : "h-full"
-          }`}
-          alt="country to guess"
-          src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
-          style={
-            rotationMode && !gameEnded
-              ? {
-                  transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
-                }
-              : {}
-          }
-        />
+        </div>
+        <div className="my-1 mx-1">
+          <img
+            className={`max-h-32 m-auto transition-transform duration-700 ease-in dark:invert ${
+              hideImageMode && !gameEnded ? "h-0" : "h-full"
+            }`}
+            alt="country to guess"
+            src={`images/flags/${country.code.toLowerCase()}.svg`}
+          />
+        </div>
       </div>
       {rotationMode && !hideImageMode && !gameEnded && (
         <button
